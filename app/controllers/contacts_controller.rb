@@ -5,6 +5,8 @@ class ContactsController < ApplicationController
   def index
     @contacts = Contact.all
 
+    # controllerで制御したい場合、mapとmergeを使って、jsonに"author"というkeyと"yuta ushijima"というvalueを追加
+    # render json: @contacts.map { |contact| contact.attributes.merge(author: "yuta ushijima")}
     render json: @contacts
   end
 
