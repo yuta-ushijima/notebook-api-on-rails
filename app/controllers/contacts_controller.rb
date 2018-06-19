@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
 
     # controllerで制御したい場合、mapとmergeを使って、jsonに"author"というkeyと"yuta ushijima"というvalueを追加
     # render json: @contacts.map { |contact| contact.attributes.merge(author: "yuta ushijima")}
-    render json: @contacts
+    render json: @contacts, methods: [:hello, :I18n]
   end
 
   # GET /contacts/1
@@ -48,6 +48,6 @@ class ContactsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :birthdate)
+      params.require(:contact).permit(:name, :email, :birthdate, :kind_id)
     end
 end
