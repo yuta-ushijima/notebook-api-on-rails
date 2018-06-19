@@ -7,12 +7,12 @@ class ContactsController < ApplicationController
 
     # controllerで制御したい場合、mapとmergeを使って、jsonに"author"というkeyと"yuta ushijima"というvalueを追加
     # render json: @contacts.map { |contact| contact.attributes.merge(author: "yuta ushijima")}
-    render json: @contacts, methods: [:hello, :I18n]
+    render json: @contacts #, methods: :birthdate_ja #, methods: [:hello, :I18n]
   end
 
   # GET /contacts/1
   def show
-    render json: @contact
+    render json: @contact.to_ja
   end
 
   # POST /contacts
