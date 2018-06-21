@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1
   def show
-    render json: @contact.to_ja
+    render json: @contact
   end
 
   # POST /contacts
