@@ -1,6 +1,8 @@
 namespace :dev do
   desc "開発環境設定"
   task setup: :environment do
+    puts "データベースをリセット中..."
+    %x(rails db:drop db:create db:migrate)
 
     puts "説明文のダミーデータ生成中..."
 
@@ -28,6 +30,18 @@ namespace :dev do
 
     ################################
 
+     puts "Addressテーブルのダミーデータ生成中..."
+     Contact.all.each do | contact |
+        address = Address.create(
+          street: Faker::Address.street_address,
+          city: Faker::Address.city,
+          contact: contact
+        )
+      end
+     puts "Addressテーブルのダミーデータ登録完了！"
+
+    ################################
+
     puts "Phoneテーブルのダミーデータ生成中..."
     Contact.all.each do |contact|
       Random.rand(5).times do |i|
@@ -37,7 +51,5 @@ namespace :dev do
       end
     end
     puts "Phoneテーブルのダミーデータ登録完了！"
-
-    
   end
 end
