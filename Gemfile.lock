@@ -41,6 +41,7 @@ GEM
     arel (7.1.4)
     builder (3.2.3)
     byebug (10.0.2)
+    coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
     erubis (2.7.0)
@@ -66,6 +67,11 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    pry (0.11.3)
+      coderay (~> 1.1.0)
+      method_source (~> 0.9.0)
+    pry-rails (0.3.6)
+      pry (>= 0.10.4)
     puma (3.11.4)
     rack (2.0.5)
     rack-test (0.6.3)
@@ -128,6 +134,7 @@ DEPENDENCIES
   byebug
   faker
   listen (~> 3.0.5)
+  pry-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
   rails-i18n (~> 5.1)

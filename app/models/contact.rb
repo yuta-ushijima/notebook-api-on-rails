@@ -4,21 +4,23 @@ class Contact < ApplicationRecord
   belongs_to :kind
   has_many :phones
 
-  def as_json(options={})
-    h = super(options)
-    h[:birthday] = (I18n.l(self.birthdate) unless self.birthdate.blank?)
-    h
-  end
+  accepts_nested_attributes_for :phones, allow_destroy: true
+
+  # def as_json(options={})
+  #   h = super(options)
+  #   h[:birthday] = (I18n.l(self.birthdate) unless self.birthdate.blank?)
+  #   h
+  # end
   # def birthdate_ja
   #   I18n.l(self.birthdate) unless self.birthdate.blank?
   # end
 
-  def to_ja
-    { name: self.name,
-      email: self.email, 
-      birthdate: (I18n.l(self.birthdate) unless self.birthdate.blank?)
-    }
-  end
+  # def to_ja
+  #   { name: self.name,
+  #     email: self.email, 
+  #     birthdate: (I18n.l(self.birthdate) unless self.birthdate.blank?)
+  #   }
+  # end
   # def author
   #   "Yuta Ushijima"
   # end
